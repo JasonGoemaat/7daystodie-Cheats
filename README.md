@@ -46,7 +46,23 @@ There are several new items with easy recipes requiring one wood that you should
   * 50% stamina over time buff
   * 10% mobility
   * High durability
-  
+* FU Mod
+  * Mod you can put in weapons
+  * Stats aren't exact, but should be these in code
+  * +850% entity damage
+  * +400% magazine size
+  * 95% faster reload
+  * 160% longer range
+  * -40% spread
+  * -85% vertical kick
+  * -75% horizontal kick
+  * +75% weapon handling
+  * +15% rounds per minute
+  * -45% incremental spread multiplier
+  * 3 entity penetration
+  * rad remover
+
+
 ## Buffs
 
 To use these, use F1 to open the console and type `buff <name>`.  To remove them type `debuff <name>` instead.
@@ -59,4 +75,3 @@ To use these, use F1 to open the console and type `buff <name>`.  To remove them
 * buffforge
   * *should* speed up smelting, but doesn't seem to
   * does speed up all crafting by a lot.  with an anvil in a forge is is almost instant
-  

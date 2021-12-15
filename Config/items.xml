@@ -15,7 +15,7 @@
     <!--********************************************************************************
       * gunDeath - silenced SMG with no ammo requirement
       * 
-      * There should be a recipe requiring one stone
+      * There should be a recipe requiring one wood
       ********************************************************************************-->
     <item name="gunDeath">
       <property name="Tags" value="weapon,ranged,holdBreathAiming,reloadPenalty,gun,shortRange,barrelAttachments,sideAttachments,smallTopAttachments,magazine,drumMagazine,firingMode,bottomAttachments,attAgility,perkGunslinger,9mmGun,canHaveCosmetic,tool" />
