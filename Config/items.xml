@@ -1,0 +1,306 @@
+<configs>
+  <!--
+    Tweak bullets
+  -->
+  ammo44MagnumBulletHP
+  <set xpath="/items/item[@name='ammo762BulletHP']/effect_group/passive_effect[@name='BlockDamage']/@value">0</set>
+  <set xpath="/items/item[@name='ammo762BulletHP']/effect_group/passive_effect[@name='TargetArmor']/@value">-0.5</set>
+  <set xpath="/items/item[@name='ammo762BulletHP']/effect_group/display_value[@name='dTargetArmor']/@value">-0.5</set>
+  <set xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group/passive_effect[@name='BlockDamage']/@value">0</set>
+  <set xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group/passive_effect[@name='TargetArmor']/@value">-0.5</set>
+  <set xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group/display_value[@name='dTargetArmor']/@value">-0.5</set>
+  
+
+  <append xpath="/items">
+    <!--********************************************************************************
+      * gunDeath - silenced SMG with no ammo requirement
+      * 
+      * There should be a recipe requiring one stone
+      ********************************************************************************-->
+    <item name="gunDeath">
+      <property name="Tags" value="weapon,ranged,holdBreathAiming,reloadPenalty,gun,shortRange,barrelAttachments,sideAttachments,smallTopAttachments,magazine,drumMagazine,firingMode,bottomAttachments,attAgility,perkGunslinger,9mmGun,canHaveCosmetic,tool" />
+      <property name="DisplayType" value="rangedGun" />
+      <property name="CustomIcon" value="gunHandgunT3SMG5" />
+      <property name="CustomIconTint" value="0,255,255" />
+      <property name="HoldType" value="6" />
+      <property name="Meshfile" value="#Other/Items?Weapons/Ranged/MP5/MP5Prefab.prefab" />
+      <property name="Material" value="MHandGunParts" />
+      <property name="Weight" value="6" />
+      <property name="RepairTools" value="resourceRockSmall" />
+      <property name="DegradationBreaksAfter" value="false" />
+      <property name="SoundJammed" value="weapon_jam" />
+      <property name="Attachments" value="meleeToolFlashlight02" />
+      <Property name="TintColor" value="ff00ff" />
+      <property name="CrosshairOnAim" value="true" />
+      <property name="CrosshairUpAfterShot" value="true" />
+      <property name="Sound_Sight_In" value="smg_sight_in" />
+      <property name="Sound_Sight_Out" value="smg_sight_out" />
+      <property name="Group" value="Ammo/Weapons" />
+      <property name="RepairExpMultiplier" value="10.8" />
+      <property name="EconomicValue" value="1500" />
+      <property name="ShowQuality" value="true" />
+
+      <property class="Action0">
+        <property name="Class" value="Ranged" />
+        <property name="Delay" value=".150" />
+        <property name="Magazine_items" value="ammo9mmBulletBall,ammo9mmBulletHP,ammo9mmBulletAP" />
+        <property name="Reload_time" value="4.1" />
+        <property name="Sound_start" value="mp5_s_fire" />
+        <property name="Sound_end" value="silencefiller" />
+        <property name="Sound_loop" value="mp5_s_fire" />
+        <property name="Sound_empty" value="dryfire" />
+        <property name="Sound_reload" value="mp5_reload" />
+        <property name="Particles_muzzle_fire" value="" />
+        <property name="Particles_muzzle_fire_fpv" value="" />
+        <property name="ScopeOffset" value="-.000525,.1449,-.2" />
+        <property name="SideOffset" value="0,0,0" />
+        <property name="BarrelOffset" value="-.062,.062,.16" />
+        <property name="Single_magazine_usage" value="true" />
+        <property name="Infinite_ammo" value="true" />
+
+        <property name="ToolCategory.Butcher" value="0" param1="100" />
+        <property name="ToolCategory.harvestingTools" value="1" param1="1" />
+
+      </property>
+      <property class="Action1">
+        <property name="Class" value="Zoom" />
+        <property name="CrosshairOnAim" value="true" />
+        <property name="Zoom_overlay" value="#Other/Items?Weapons/HUD/sniper_zoom_overlay.tga" />
+        <property name="Zoom_max_out" value="30" />
+        <property name="Zoom_max_in" value="20" />
+        <property name="ScopeCameraOffset" value="-.0003,0,-.01" />
+      </property>
+
+      <effect_group name="gunDeath">
+        <passive_effect name="HarvestCount" operation="base_set" value="1" tags="butcherHarvest" />
+
+        <passive_effect name="MaxRange" operation="base_set" value="200" tags="perkGunslinger,9mmGun" />
+        <passive_effect name="DamageFalloffRange" operation="base_set" value="200" tags="perkGunslinger,9mmGun" />
+        <passive_effect name="DamageFalloffRange" operation="perc_add" value="-.2,.2" tags="perkGunslinger,9mmGun" />
+
+        <passive_effect name="RoundsPerMinute" operation="base_set" value="480" tags="perkGunslinger" />
+        <passive_effect name="BurstRoundCount" operation="base_set" value="1000" tags="perkGunslinger" />
+
+        <passive_effect name="MagazineSize" operation="base_set" value="30" tags="perkGunslinger" />
+        <passive_effect name="ReloadSpeedMultiplier" operation="base_set" value="1" tags="perkGunslinger" />
+        <passive_effect name="ModSlots" operation="base_set" value="4,4,4,4,4,4" tier="1,2,3,4,5,6" />
+        <passive_effect name="ModPowerBonus" operation="perc_add" value=".01" tags="EntityDamage" />
+        <passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue" />
+        <passive_effect name="EntityDamage" operation="base_set" value="500" />
+        <passive_effect name="BlockDamage" operation="base_set" value="0" />
+        <passive_effect name="BlockDamage" operation="perc_add" value="-5.15,-4.15" tags="perkGunslinger" />
+
+        <passive_effect name="DegradationMax" operation="perc_add" value="-1,-.9" tags="perkGunslinger" />
+        <passive_effect name="RoundsPerMinute" operation="perc_add" value="-.05,.05" tags="perkGunslinger" />
+        <passive_effect name="MagazineSize" operation="perc_add" value="-.122,.122" />
+        <passive_effect name="WeaponHandling" operation="perc_add" value="-.08,.08" tags="perkGunslinger" />
+
+        <passive_effect name="SpreadDegreesVertical" operation="base_set" value="0.15" tags="perkGunslinger" />
+        <passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="0.15" tags="perkGunslinger" />
+        <passive_effect name="SpreadMultiplierAiming" operation="base_set" value=".35" tags="perkGunslinger" />
+        <passive_effect name="SpreadMultiplierCrouching" operation="base_set" value=".5" tags="perkGunslinger" />
+        <passive_effect name="SpreadMultiplierWalking" operation="base_set" value="2" tags="perkGunslinger" />
+        <passive_effect name="SpreadMultiplierRunning" operation="base_set" value="3" tags="perkGunslinger" />
+
+        <passive_effect name="KickDegreesVerticalMin" operation="base_set" value=".05" tags="perkGunslinger" />
+        <passive_effect name="KickDegreesVerticalMax" operation="base_set" value=".1" tags="perkGunslinger" />
+        <passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="-.03" tags="perkGunslinger" />
+        <passive_effect name="KickDegreesHorizontalMax" operation="base_set" value=".03" tags="perkGunslinger" />
+
+        <passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="1.1" tags="perkGunslinger,9mmGun" />
+        <passive_effect name="WeaponHandling" operation="base_set" value="1.8" tags="perkGunslinger" />
+
+        <passive_effect name="DegradationMax" operation="base_set" value="350,700" tier="1,6" tags="perkGunslinger,9mmGun" />
+        <passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="perkGunslinger,9mmGun" />
+      </effect_group>
+    </item>
+  </append>
+
+  <append xpath="/items">
+    <!--********************************************************************************
+      * SuperWrench - basically faster wrench
+      ********************************************************************************-->
+    <item name="meleeToolSalvageSuperWrench">
+      <property name="Tags" value="blunt,melee,grunting,light,tool,longShaft,attPerception,perkSalvageOperations,canHaveCosmetic" />
+      <property name="DisplayType" value="melee" />
+      <property name="HoldType" value="29" />
+      <property name="Meshfile" value="#Other/Items?Tools/wrenchPrefab.prefab" />
+      <property name="Material" value="Mmetal" />
+      <property name="RepairTools" value="resourceRepairKit" />
+      <property name="DegradationBreaksAfter" value="false" />
+      <property name="SoundJammed" value="ItemNeedsRepair" />
+      <property name="SoundDestroy" value="metaldestroy" />
+      <property name="EconomicValue" value="15000" />
+      <property name="ShowQuality" value="true" />
+
+      <property name="CustomIcon" value="meleeToolSalvageT1Wrench"/>
+      <property name="CustomIconTint" value="0,255,255" />
+      <Property name="TintColor" value="00ffff" />
+
+      <property class="Action0">
+        <property name="Class" value="DynamicMelee" />
+        <property name="Sound_start" value="swoosh" />
+        <property name="ToolCategory.harvestingTools" value=".5" param1="1" />
+        <property name="ToolCategory.Disassemble" value="1" param1="1" />
+        <property name="Particle_harvesting" value="true" param1="metal" />
+
+        <property name="UseGrazingHits" value="true" />
+        <property name="GrazeStart" value=".25" />
+        <property name="GrazeEnd" value=".3" />
+        <property name="SwingDegrees" value="50" />
+        <property name="SwingAngle" value="180" />
+      </property>
+
+      <property class="Action1">
+        <property name="Class" value="DynamicMelee" />
+        <property name="Sound_start" value="swoosh" />
+        <property name="ToolCategory.harvestingTools" value=".5" param1="1" />
+        <!-- <property name="UsePowerAttackAnimation" value="true"/> -->
+
+        <property name="UseGrazingHits" value="true" />
+        <property name="GrazeStart" value=".25" />
+        <property name="GrazeEnd" value=".3" />
+        <property name="SwingDegrees" value="50" />
+        <property name="SwingAngle" value="180" />
+      </property>
+
+      <effect_group name="meleeToolSalvageSuperWrench">
+        <passive_effect name="EntityDamage" operation="base_set" value="116.5" tags="perkSalvageOperations" />
+        <passive_effect name="BlockDamage" operation="base_set" value="238.5" tags="perkSalvageOperations" />
+        <passive_effect name="AttacksPerMinute" operation="base_set" value="150" />
+        <passive_effect name="StaminaLoss" operation="base_set" value="1.3" tags="primary" />
+        <passive_effect name="DegradationMax" operation="base_set" value="1800,6400" tier="1,6" tags="perkSalvageOperations" />
+        <passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="perkSalvageOperations" />
+        <passive_effect name="MaxRange" operation="base_set" value="3.4" tags="perkSalvageOperations" />
+        <passive_effect name="BlockRange" operation="base_set" value="4.5" tags="perkSalvageOperations" />
+
+        <passive_effect name="ModSlots" operation="base_set" value="2,2,3,3,4,4" tier="1,2,3,4,5,6" />
+        <passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage" />
+        <passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue" />
+
+        <passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkSalvageOperations" /> <!-- random EntityDmg -->
+        <passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkSalvageOperations" /> <!-- tier bonus -->
+        <passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkSalvageOperations" /> <!-- random BlockDmg -->
+        <passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkSalvageOperations" /> <!-- tier bonus -->
+
+        <passive_effect name="DamageModifier" operation="perc_add" value="1" tags="wood" />
+        <passive_effect name="DamageModifier" operation="perc_add" value="1" tags="earth" />
+        <passive_effect name="DamageModifier" operation="perc_add" value="1" tags="stone" />
+
+        <passive_effect name="HarvestCount" operation="base_set" value="1" tags="salvageHarvest" />
+      </effect_group>
+      <effect_group name="Power Attack">
+        <passive_effect name="EntityDamage" operation="perc_add" value="1" tags="secondary" />
+        <passive_effect name="BlockDamage" operation="perc_add" value="1" tags="secondary" />
+        <passive_effect name="StaminaLoss" operation="base_set" value="1.1" tags="secondary" />
+      </effect_group>
+      <property name="Group" value="Tools/Traps" />
+      <property name="RepairExpMultiplier" value="5.5" />
+    </item>
+  </append>
+
+  <append xpath="/items">
+    <!--********************************************************************************
+      * Awesome - basically stone axe revved to the max
+      ********************************************************************************-->
+    <item name="meleeToolRepairAwesome">
+      <property name="Tags" value="axe,melee,light,tool,miningTool,shovel,longShaft,attStrength,perkMiner69r,perkMotherLode,perkTheHuntsman,canHaveCosmetic" />
+
+      <property name="Extends" value="meleeToolRepairT0StoneAxe" />
+      <property name="Tags" value="axe,melee,light,tool,longShaft,tazas,attStrength,perkMiner69r,perkMotherLode,perkTheHuntsman,canHaveCosmetic" />
+      <property name="EconomicValue" value="150000" />
+      <property name="CustomIcon" value="meleeToolRepairT0StoneAxe" />
+      <property name="CustomIconTint" value="0,255,255" />
+      <Property name="TintColor" value="00ffff" />
+
+      <property name="SellableToTrader" value="true"/>
+
+      <property class="Action0">
+        <!-- <property name="Stamina_usage" value="4.5"/> DEPRECATED stat -->
+        <property name="ToolCategory.harvestingTools" value="1" param1="1" />
+        <property name="ToolCategory.Disassemble" value="1" param1="1" />
+      </property>
+
+      <property class="Action1">
+        <!-- UseAction -->
+        <property name="Class" value="Repair" />
+        <property name="Delay" value=".34" /> <!-- Repair actions still need the delay amount -->
+        <property name="Repair_amount" value="1000" />
+        <property name="Upgrade_hit_offset" value="-1" />
+        <property name="Sound_start" value="repair_block" />
+        <property name="Allowed_upgrade_items" value="resourceWood,resourceClayLump,resourceSnowBall,resourceScrapIron,resourceForgedIron,resourceForgedSteel,resourceConcreteMix,resourceCobblestones,ironDoor1_v1,vaultDoor01,scrapHatch_v1,vaultHatch_v1,resourceYuccaFibers,resourceCloth,resourceScrapPolymers" />
+        <property name="UsePowerAttackAnimation" value="false" />
+      </property>
+
+      <effect_group name="meleeToolRepairAwesome">
+        <passive_effect name="EntityDamage" operation="base_set" value="18" tags="perkMiner69r" />
+        <passive_effect name="BlockDamage" operation="base_set" value="122.6" tags="perkMiner69r" />
+        <passive_effect name="AttacksPerMinute" operation="base_set" value="210" tags="perkMiner69r,axe" />
+        <passive_effect name="StaminaLoss" operation="base_set" value="1" tags="primary" />
+        <passive_effect name="DegradationMax" operation="base_set" value="20000,40000" tier="1,6" tags="perkMiner69r" />
+        <passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="perkMiner69r" />
+        <passive_effect name="MaxRange" operation="base_set" value="3.4" tags="perkMiner69r" />
+        <passive_effect name="BlockRange" operation="base_set" value="5" tags="perkMiner69r" />
+
+        <passive_effect name="ModSlots" operation="base_set" value="3,3,4,4,4,4" tier="1,2,3,4,5,6" />
+        <passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage" />
+        <passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue" />
+
+        <passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkMiner69r" /> <!-- random EntityDmg -->
+        <passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMiner69r" /> <!-- tier bonus -->
+        <passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkMiner69r" /> <!-- random BlockDmg -->
+        <passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMiner69r" /> <!-- tier bonus -->
+        <passive_effect name="DegradationMax" operation="perc_add" value="-.15,.15" tags="perkMiner69r" /> <!-- random DegMax -->
+        <passive_effect name="AttacksPerMinute" operation="perc_add" value="-.05,.05" tags="perkMiner69r" /> <!-- random APM -->
+        <passive_effect name="StaminaLoss" operation="perc_add" value="-.05,.05" /> <!-- random StamLoss -->
+
+        <display_value name="dBlockRepairAmount" value="1000" />
+        <passive_effect name="HarvestCount" operation="base_set" value="1" tags="butcherHarvest,salvageHarvest" />
+        <passive_effect name="DamageModifier" operation="perc_add" value="1" tags="earth" />
+        <passive_effect name="DamageModifier" operation="perc_add" value="1" tags="stone" />
+        <passive_effect name="DamageModifier" operation="perc_add" value="1" tags="metal" />
+      </effect_group>
+
+      <property name="Group" value="Tools/Traps,Basics" />
+      <property name="RepairExpMultiplier" value="5.5" />
+    </item>
+  </append>
+
+
+  <append xpath="/items">
+    <item name="armorWhisper">
+      <property name="Extends" value="armorMilitaryStealthBoots" param1="CustomIcon" />
+      <property name="CustomIcon" value="armorMilitaryBoots" />
+      <property name="CustomIconTint" value="0,255,255" />
+
+      <property name="LightValue" value="-1.35" />
+      <property name="LightSource" value="lightSource" />
+      <property name="ActivateObject" value="lightSource" />
+      <property name="AlwaysActive" value="true" />
+
+      <property class="UMA">
+        <property name="Mesh" value="plant_fiber_shoes" />
+        <property name="Overlay0" value="fiberCloth_shoes" />
+        <property name="Layer" value="1" />
+        <property name="UISlot" value="Footwear" />
+      </property>
+      <effect_group tiered="false">
+        <passive_effect name="ModSlots" operation="base_set" value="0" />
+        <passive_effect name="HypothermalResist" operation="base_add" value="100" />
+        <passive_effect name="HyperthermalResist" operation="base_add" value="100" />
+        <passive_effect name="PhysicalDamageResist" operation="base_add" value="95,105" />
+        <passive_effect name="ElementalDamageResist" operation="perc_add" value=".5" tags="radiation"/>
+
+        <passive_effect name="ElementalDamageResist" operation="base_add" value="100,105" tags="heat,electrical,radiation" />
+        <passive_effect name="BuffResistance" operation="base_add" value="1,1.05" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger" />
+        <passive_effect name="DegradationMax" operation="base_set" value="20000" />
+        <passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="lightArmorDeg" />
+        <passive_effect name="Mobility" operation="perc_add" value=".1" />
+        <passive_effect name="NoiseMultiplier" operation="perc_add" value="-1.5" />
+        <display_value name="dNoiseMultiplier" value="-1.5" />
+        <passive_effect name="StaminaChangeOT" operation="perc_add" value=".50" />
+      </effect_group>
+    </item>
+  </append>
+
+</configs>

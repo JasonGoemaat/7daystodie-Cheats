@@ -1,0 +1,17 @@
+<configs>
+  <!--
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_timid']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_chicken']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_rabbit']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_doe']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_stag']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_hostile']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_bear']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_boar']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_coyote']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_direwolf']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_mountainlion']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_snake']/property[@name='requirement_type']/@value">None</set>
+	<set xpath="/nav_object_classes/nav_object_class[@name='animaltracking_wolf']/property[@name='requirement_type']/@value">None</set>
+  -->
+</configs>

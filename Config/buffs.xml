@@ -1,0 +1,31 @@
+<configs>
+  <append xpath="/buffs">
+    <buff name="bufflockpicker" icon="ui_game_symbol_perk" icon_color="132,0,155">
+      <display_value_key value="Lock Picker"/> <display_value value="xxx"/>
+      <effect_group>
+        <passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2"/>
+        <passive_effect name="LockPickTime" operation="perc_subtract" value="0.8"/>
+      </effect_group>
+    </buff>
+  </append>
+
+  <append xpath="/buffs">
+    <buff name="buffcosy" icon="ui_game_symbol_perk" icon_color="132,0,155">
+      <display_value_key value="Cosy"/> <display_value value="xxx"/>
+      <effect_group>
+        <passive_effect name="HypothermalResist" operation="base_add" value="100"/>
+        <passive_effect name="HyperthermalResist" operation="base_add" value="100"/>
+      </effect_group>
+    </buff>
+  </append>
+
+  <append xpath="/buffs">
+    <buff name="buffforge" icon="ui_game_symbol_perk" icon_color="132,0,155">
+      <display_value_key value="Hephaestus"/> <display_value value="xxx"/>
+      <effect_group>
+        <passive_effect name="CraftingSmeltTime" operation="perc_add" value="-.60"/>
+        <passive_effect name="CraftingTime" operation="perc_add" value="-.60"/>
+      </effect_group>
+    </buff>
+  </append>
+</configs>

@@ -1,0 +1,63 @@
+<configs>
+  <!-- new modifier that does awesome things to weapons
+  -->
+  <append xpath="/item_modifiers">
+    <item_modifier name="modGunMeleeFuckYou" installable_tags="weapon,tool" modifier_tags="specialDamage" blocked_tags="noMods" type="attachment">
+      <property name="Stacknumber" value="1" />
+      <property name="Group" value="Mods" />
+      <property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+
+      <!-- custom icon required since icon 'modGunMeleeFuckYou doesn't exist -->
+      <!-- <property name="CustomIcon" value="modGunTriggerGroupBurst"/> -->
+      <property name="CustomIcon" value="cntBarrelRadiatedSingle45" /> <!-- browse Data/ItemIcons -->
+      <!-- Other cool icons: cntConstructionSuppliesRandomLootHelper, cntGarageRandomLootHelper,
+        cntQuestTestLoot
+      -->
+
+      <effect_group tiered="false">
+        <!--Do triple damage -->
+        <passive_effect name="EntityDamage" operation="perc_add" value="8.5" />
+
+        <!--Drum magazine +, triple magazine size and INCREASE reload speed -->
+        <passive_effect name="MagazineSize" operation="perc_add" value="4" />
+        <passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value=".95" />
+
+        <!--Better than 'barrelExtender', plus increase hip handling instead of decrease -->
+        <passive_effect name="DamageFalloffRange" operation="perc_add" value="1.6" />
+        <passive_effect name="MaxRange" operation="perc_add" value="1.5" />
+        <passive_effect name="SpreadMultiplierHip" operation="perc_add" value="-.4" />
+        <passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-.4" />
+        <passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-.4" />
+        <passive_effect name="KickDegreesVerticalMin" operation="perc_add" value="-.85" />
+        <passive_effect name="KickDegreesVerticalMax" operation="perc_add" value="-.85" />
+        <passive_effect name="KickDegreesHorizontalMin" operation="perc_add" value="-.75" />
+        <passive_effect name="KickDegreesHorizontalMax" operation="perc_add" value="-.75" />
+        <passive_effect name="WeaponHandling" operation="perc_add" value=".75" />
+
+        <!--Better triggerGroupSemi -->
+        <passive_effect name="RoundsPerMinute" operation="perc_add" value=".15"/>
+        <passive_effect name="IncrementalSpreadMultiplier" operation="perc_add" value="-.45"/>
+      </effect_group>
+
+      <!--Rad Remover, since it's incompatible -->
+      <effect_group tiered="false">
+        <requirement name="EntityTagCompare" target="other" tags="radiated" />
+        <triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffRadiatedRegenBlock" />
+      </effect_group>
+
+      <!-- Can it add penitration?  That's normally on the bullets... -->
+      <passive_effect name="EntityPenetrationCount" operation="base_set" value="3" />
+    </item_modifier>
+  </append>
+
+
+  <!-- help gunDeath with reflex sight
+  -->
+  <append xpath="/item_modifiers/item_modifier[@name='modGunReflexSight']">
+    <item_property_overrides name="gunDeath">
+      <property name="ScopeOffset" value=".0001,.1,-.15" />
+      <property name="ScopeScale" value=".55,.55,.55" />
+      <property name="ScopeCameraOffset" value="-.00005,-.0214,.15" />
+    </item_property_overrides>
+  </append>
+</configs>
