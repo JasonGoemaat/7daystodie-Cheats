@@ -1,8 +1,8 @@
 <configs>
   <!--
     Tweak bullets
-  -->
   ammo44MagnumBulletHP
+  -->
   <set xpath="/items/item[@name='ammo762BulletHP']/effect_group/passive_effect[@name='BlockDamage']/@value">0</set>
   <set xpath="/items/item[@name='ammo762BulletHP']/effect_group/passive_effect[@name='TargetArmor']/@value">-0.5</set>
   <set xpath="/items/item[@name='ammo762BulletHP']/effect_group/display_value[@name='dTargetArmor']/@value">-0.5</set>
