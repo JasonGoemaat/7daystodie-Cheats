@@ -6,6 +6,7 @@ To install:
   * > The folder should have 7DaysToDie.exe and these folders: 7DaysToDie_Data, Data, EasyAntiCheat, Launcher, Licenses, MonoBleedingEdge
 * Create a 'Mods' directory if it doesn't exist
 * Clone this repository into the Mods folder
+* Exit your current game (you can leave 7 days to die running) and re-enter your save
 
 ## Cheats - Tweaks
 
