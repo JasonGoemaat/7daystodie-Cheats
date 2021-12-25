@@ -1,31 +1,89 @@
 <configs>
   <append xpath="/buffs">
     <buff name="bufflockpicker" icon="ui_game_symbol_perk" icon_color="132,0,155">
-      <display_value_key value="Lock Picker"/> <display_value value="xxx"/>
+      <display_value_key value="Lock Picker" />
+      <display_value value="xxx" />
       <effect_group>
-        <passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2"/>
-        <passive_effect name="LockPickTime" operation="perc_subtract" value="0.8"/>
+        <passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2" />
+        <passive_effect name="LockPickTime" operation="perc_subtract" value="0.8" />
       </effect_group>
     </buff>
-  </append>
 
-  <append xpath="/buffs">
     <buff name="buffcosy" icon="ui_game_symbol_perk" icon_color="132,0,155">
-      <display_value_key value="Cosy"/> <display_value value="xxx"/>
+      <display_value_key value="Cosy" />
+      <display_value value="xxx" />
       <effect_group>
-        <passive_effect name="HypothermalResist" operation="base_add" value="100"/>
-        <passive_effect name="HyperthermalResist" operation="base_add" value="100"/>
+        <passive_effect name="HypothermalResist" operation="base_add" value="100" />
+        <passive_effect name="HyperthermalResist" operation="base_add" value="100" />
       </effect_group>
     </buff>
-  </append>
 
-  <append xpath="/buffs">
     <buff name="buffforge" icon="ui_game_symbol_perk" icon_color="132,0,155">
-      <display_value_key value="Hephaestus"/> <display_value value="xxx"/>
+      <display_value_key value="Hephaestus" />
+      <display_value value="xxx" />
       <effect_group>
-        <passive_effect name="CraftingSmeltTime" operation="perc_add" value="-.60"/>
-        <passive_effect name="CraftingTime" operation="perc_add" value="-.60"/>
+        <passive_effect name="CraftingSmeltTime" operation="perc_add" value="-.60" />
+        <passive_effect name="CraftingTime" operation="perc_add" value="-.60" />
+        <passive_effect name="ScrappingTime" operation="perc_add" value="-1" />
       </effect_group>
+    </buff>
+
+    <buff name="buffdrugs" icon="ui_game_symbol_perk" icon_color="132,0,155">
+      <display_value_key value="High as F*$k" />
+      <display_value value="xxx" />
+      <effect_group>
+        <!-- buffDrugSugarButts -->
+        <passive_effect name="BarteringBuying" operation="base_add" value="0.1" />
+        <passive_effect name="BarteringSelling" operation="base_add" value="0.1" />
+
+        <!-- buffDrugSkullCrushers -->
+        <passive_effect name="EntityDamage" operation="perc_add" value=".5" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler" />
+
+        <!-- buffDrugRockBusters -->
+        <passive_effect name="HarvestCount" operation="perc_add" value=".2" tags="oreWoodHarvest" />
+        <passive_effect name="PlayerExpGain" operation="perc_add" value="-.05" tags="Harvesting" />
+
+        <!-- buffDrugHackers -->
+        <passive_effect name="HarvestCount" operation="perc_add" value=".2" tags="salvageHarvest" />
+        <passive_effect name="PlayerExpGain" operation="perc_add" value="-.05" tags="Harvesting" />
+
+        <!-- buffDrugEyeKandy -->
+        <passive_effect name="LootGamestage" operation="base_add" value="5" />
+        <passive_effect name="LootGamestage" operation="perc_add" value=".1" />
+
+        <!-- buffDrugAtomJunkies -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".5" tags="perkDemolitionsExpert"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".5" tags="perkDemolitionsExpert"/>
+
+        <!-- buffDrugFortBites -->
+        <passive_effect name="HealthLoss" operation="perc_add" value="-.5"/>
+        <passive_effect name="WaterChangeOT" operation="base_subtract" value=".01"/> <!-- was .25 -->
+
+        <!-- buffDrugRecog -->
+        <passive_effect name="EntityDamage" operation="perc_add" value=".5" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkArchery,admin"/>
+        <passive_effect name="WaterChangeOT" operation="base_subtract" value=".01"/> <!-- was .1 -->
+  
+        <!-- buffDrugSteroids -->
+        <passive_effect name="RunSpeed" operation="perc_add" value=".1"/>
+        <passive_effect name="WaterChangeOT" operation="base_subtract" value=".01"/> <!-- was .05 -->
+
+        <!-- buffPumpkinCheesecake -->
+        <passive_effect name="BarteringBuying" operation="base_add" value=".05"/>
+
+        <!-- buffDrugSteroids -->
+        <passive_effect name="BarteringBuying" operation="base_add" value=".2"/>
+        <passive_effect name="BarteringSelling" operation="base_add" value=".2"/>
+  
+      </effect_group>
+
+      <!-- buffDrugCovertCats -->
+      <effect_group>
+        <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+        <requirement name="CVarCompare" cvar="_notAlerted" operation="GT" value="0" target="other" />
+        <passive_effect name="DamageBonus" operation="base_add" value=".5" /> <!--For UI-->
+        <passive_effect name="EntityDamage" operation="perc_add" value=".5" />
+      </effect_group>
+
     </buff>
   </append>
 </configs>

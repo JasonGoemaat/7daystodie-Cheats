@@ -1,38 +1,35 @@
 <configs>
   <append xpath="/recipes">
     <recipe name="gunDeath" count="1" tags="">
-      <ingredient name="resourceWood" count="1"/>
+      <ingredient name="resourceWood" count="1" />
     </recipe>
-  </append>
-  
-  <append xpath="/recipes">
-    <recipe name="meleeToolRepairAwesome" count="1" tags="perkMiner69r">
-      <ingredient name="resourceWood" count="1"/>
-    </recipe>
-  </append>
-  
-  <append xpath="/recipes">
-    <recipe name="armorWhisper" count="1" tags="">
-      <ingredient name="resourceWood" count="1"/>
-    </recipe>
-  </append>
-  
-  <append xpath="/recipes">
-    <recipe name="meleeToolSalvageSuperWrench" count="1" tags="">
-      <ingredient name="resourceWood" count="1"/>
-    </recipe>
-  </append>
-  
-  <append xpath="/recipes">
-    <recipe name="modGunMeleeFuckYou" count="1" tags="">
-      <ingredient name="resourceWood" count="1"/>
-    </recipe>
-  </append>
 
-  <append xpath="/recipes">
-    <recipe name="resourceRepairKit" count="1">
-      <ingredient name="resourceWood" count="1"/>
+    <recipe name="meleeToolRepairAwesome" count="1" tags="perkMiner69r">
+      <ingredient name="resourceWood" count="1" />
     </recipe>
-</append>
-  
+
+    <recipe name="armorWhisper" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
+
+    <recipe name="meleeToolSalvageSuperWrench" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
+
+    <recipe name="modGunMeleeFuckYou" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
+
+    <recipe name="resourceRepairKit" count="1">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
+
+    <recipe name="apparelFourEyes" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
+
+    <recipe name="apparelFourEyesNV" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
+  </append>
 </configs>

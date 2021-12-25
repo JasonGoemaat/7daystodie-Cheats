@@ -1,0 +1,48 @@
+<!-- 
+  The main thing here is to see if I can make it so you can pick up doors, especially
+  locked ones...  To do that I need to add a 'CanPickup' property with value 'true'
+
+    <property name="CanPickup" value="true"/>
+
+  Maybe blocks like this:
+
+    <block name="houseFrontDoor1_v1">
+      <property name="Place" value="Door"/>  // build restriction
+      <property name="Tags" value="door"/>
+      <property name="BlockTag" value="Door"/>
+
+  Other tags:
+
+    <block name="commercialDoor2_v1">
+    <block name="vaultDoor01">
+    <block name="vaultDoor03_Powered">
+    <block name="ironDoor1_v1">
+    <block name="metalReinforcedDoorWooden">
+    <block name="secureReinforcedDoorWooden">
+    <block name="secureDoorWooden">
+
+-->
+
+<configs>
+  <!-- ATTEMPT: find blocks/block that have a property with name 'BlockTag' and value 'Door' 
+        and let player pick them up...
+  -->
+  <!-- DANG, this doesn't seem to work, but at least it gives no errors... -->
+  <append xpath="/blocks/block/property[@name='BlockTag' and @value='Door']/..">
+    <property name="CanPickup" value="true"/>
+  </append>
+
+
+  <!-- ATTEMPT: make 'frame shapes' (ones player can pickup) have a material with a
+    lot of HP, here we change to steel...
+
+    from blocks.xml steel shapes:
+    	<property name="Material" value="Msteel_shapes"/>
+
+    Also I'm removing the property Tags=wood because that seems to cause my shotgun
+    to annihilate the blocks :).  
+  -->
+  <set xpath="/blocks/block[@name='frameShapes']/property[@name='Material']/@value">Msteel_shapes</set>
+  <remove xpath="/blocks/block[@name='frameShapes']/property[@name='Tags']" />
+
+</configs>

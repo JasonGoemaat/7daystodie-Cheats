@@ -9,7 +9,11 @@
   <set xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group/passive_effect[@name='BlockDamage']/@value">0</set>
   <set xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group/passive_effect[@name='TargetArmor']/@value">-0.5</set>
   <set xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group/display_value[@name='dTargetArmor']/@value">-0.5</set>
-  
+
+  <!-- faster smelting (NOT scrapping) of brass items, 10x speed -->
+  <set xpath="/items/item[@name='resourceDoorKnob']/property[@name='MeltTimePerUnit']/@value">0.04</set>
+  <set xpath="/items/item[@name='resourceCandleStick']/property[@name='MeltTimePerUnit']/@value">0.04</set>
+  <set xpath="/items/item[@name='resourceRadiator']/property[@name='MeltTimePerUnit']/@value">0.04</set>
 
   <append xpath="/items">
     <!--********************************************************************************
@@ -114,9 +118,7 @@
         <passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="perkGunslinger,9mmGun" />
       </effect_group>
     </item>
-  </append>
 
-  <append xpath="/items">
     <!--********************************************************************************
       * SuperWrench - basically faster wrench
       ********************************************************************************-->
@@ -133,7 +135,7 @@
       <property name="EconomicValue" value="15000" />
       <property name="ShowQuality" value="true" />
 
-      <property name="CustomIcon" value="meleeToolSalvageT1Wrench"/>
+      <property name="CustomIcon" value="meleeToolSalvageT1Wrench" />
       <property name="CustomIconTint" value="0,255,255" />
       <Property name="TintColor" value="00ffff" />
 
@@ -197,9 +199,7 @@
       <property name="Group" value="Tools/Traps" />
       <property name="RepairExpMultiplier" value="5.5" />
     </item>
-  </append>
 
-  <append xpath="/items">
     <!--********************************************************************************
       * Awesome - basically stone axe revved to the max
       ********************************************************************************-->
@@ -213,7 +213,7 @@
       <property name="CustomIconTint" value="0,255,255" />
       <Property name="TintColor" value="00ffff" />
 
-      <property name="SellableToTrader" value="true"/>
+      <property name="SellableToTrader" value="true" />
 
       <property class="Action0">
         <!-- <property name="Stamina_usage" value="4.5"/> DEPRECATED stat -->
@@ -264,14 +264,13 @@
       <property name="Group" value="Tools/Traps,Basics" />
       <property name="RepairExpMultiplier" value="5.5" />
     </item>
-  </append>
 
-
-  <append xpath="/items">
     <item name="armorWhisper">
       <property name="Extends" value="armorMilitaryStealthBoots" param1="CustomIcon" />
       <property name="CustomIcon" value="armorMilitaryBoots" />
       <property name="CustomIconTint" value="0,255,255" />
+
+      <property name="DisplayType" value="armorWhisper"/>
 
       <property name="LightValue" value="-1.35" />
       <property name="LightSource" value="lightSource" />
@@ -288,17 +287,127 @@
         <passive_effect name="ModSlots" operation="base_set" value="0" />
         <passive_effect name="HypothermalResist" operation="base_add" value="100" />
         <passive_effect name="HyperthermalResist" operation="base_add" value="100" />
-        <passive_effect name="PhysicalDamageResist" operation="base_add" value="95,105" />
-        <passive_effect name="ElementalDamageResist" operation="perc_add" value=".5" tags="radiation"/>
+        <passive_effect name="PhysicalDamageResist" operation="base_add" value="25,26" />
+        <passive_effect name="ElementalDamageResist" operation="perc_add" value=".5" tags="radiation" />
 
-        <passive_effect name="ElementalDamageResist" operation="base_add" value="100,105" tags="heat,electrical,radiation" />
-        <passive_effect name="BuffResistance" operation="base_add" value="1,1.05" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger" />
+        <passive_effect name="ElementalDamageResist" operation="base_add" value="20,25" tags="heat,electrical,radiation" />
+        <passive_effect name="BuffResistance" operation="base_add" value="1,1.05" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire,critResistDisplay" />
         <passive_effect name="DegradationMax" operation="base_set" value="20000" />
         <passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="lightArmorDeg" />
         <passive_effect name="Mobility" operation="perc_add" value=".1" />
         <passive_effect name="NoiseMultiplier" operation="perc_add" value="-1.5" />
         <display_value name="dNoiseMultiplier" value="-1.5" />
-        <passive_effect name="StaminaChangeOT" operation="perc_add" value=".50" />
+        <passive_effect name="StaminaChangeOT" operation="perc_add" value=".05" />
+        <passive_effect name="Mobility" operation="perc_add" value=".15"/>
+      </effect_group>
+    </item>
+
+    <item name="apparelFourEyes">
+      <property name="Extends" value="apparelShades" />
+      <property name="Material" value="Mleather" />
+
+      <!-- CustomIcon needed becuase 'name' doesn't have an icon -->
+      <property name="CustomIcon" value="apparelAviatorGoggles" />
+      <property name="CustomIconTint" value="0,255,255" />
+
+      <property name="DisplayType" value="clothingFourEyes" />
+      <property class="UMA">
+        <property name="Mesh" value="aviator_goggles" />
+        <property name="Overlay0" value="aviator_goggles" />
+      </property>
+      <effect_group tiered="false">
+        <passive_effect name="ModSlots" operation="base_set" value="0" />
+
+        <!-- apparelShades -->
+        <passive_effect name="AttributeLevel" tags="attPerception" operation="base_add" value="1" />
+
+        <!-- apparelToughGuySunglasses -->
+        <passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="1" />
+
+        <!-- apparelAviatorGoggles -->
+        <passive_effect name="LootGamestage" operation="base_add" value="5,5.2" />
+        <passive_effect name="TreasureBlocksPerReduction" operation="base_add" value="-1" />
+        <display_value name="dTreasureBlocksPerReduction" value="-1" />
+
+        <!-- apparelSkiGoggles -->
+        <passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="1" />
+
+        <!-- apparelNerdGlasses -->
+        <passive_effect name="AttributeLevel" operation="base_add" value="1" tags="attIntellect" />
+        <passive_effect name="CraftingTime" operation="perc_add" value="-.1" />
+        <passive_effect name="PlayerExpGain" operation="perc_add" value=".1" />
+        <display_value name="dCraftingTime" value="-.1" />
+        <display_value name="dPlayerExpGain" value=".1" />
+
+        <!-- apparelSkiGoggles -->
+        <passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="1" />
+      </effect_group>
+    </item>
+
+    <item name="apparelFourEyesNV">
+      <property name="Extends" value="apparelShades" />
+      <property name="Material" value="Mleather" />
+
+      <!-- CustomIcon needed becuase 'name' doesn't have an icon -->
+      <property name="CustomIcon" value="apparelAviatorGoggles" />
+      <property name="CustomIconTint" value="255,55,55" />
+
+      <!-- Night Vision Goggles -->
+      <property name="ActivateObject" value="NightVision"/>
+      <property name="ImageEffectOnActive" value="NightVision"/>
+      <property name="PlaySoundOnActive" value="nightvision_toggle"/>
+      <property name="Active" value="false"/>
+
+      <effect_group tiered="false">
+        <requirement name="IsLocalPlayer"/>
+        <triggered_effect trigger="onSelfItemActivate" action="ModifyScreenEffect" effect_name="NightVision" intensity="0.7" fade="0"/>
+        <triggered_effect trigger="onSelfItemDeactivate" action="ModifyScreenEffect" effect_name="NightVision" intensity="0" fade="0"/>
+        <triggered_effect trigger="onSelfEquipStop" action="ModifyScreenEffect" effect_name="NightVision" intensity="0" fade="0"/>
+    
+        <triggered_effect trigger="onSelfEquipStart" action="AddPart" part="HeadLightTPV" prefab="ScreenEffects/DeferredNV/NVGLight" parentTransform="Spotlight" localPos="0,0,0" localRot="90,0,0"/>
+        <triggered_effect trigger="onSelfEquipStart" action="AddPart" part="HeadLightFPV" prefab="ScreenEffects/DeferredNV/NVGLight" parentTransform="CameraNode" localPos="0,0,.1" localRot="-90,0,0"/>
+        <triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLightTPV"/>
+        <triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLightFPV"/>
+        <triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLightTPV" active="@!.IsFPV"/>
+        <triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLightFPV" active="@.IsFPV"/>
+        <triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLightTPV" active="false"/>
+        <triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLightFPV" active="false"/>
+        <triggered_effect trigger="onSelfChangedView" action="SetPartActive" part="HeadLightTPV" active="@!.IsFPV"/>
+        <triggered_effect trigger="onSelfChangedView" action="SetPartActive" part="HeadLightFPV" active="@.IsFPV"/>
+      </effect_group>
+      
+      <!-- other stuff -->
+      <property name="DisplayType" value="clothingFourEyesNV" />
+      <property class="UMA">
+        <property name="Mesh" value="aviator_goggles" />
+        <property name="Overlay0" value="aviator_goggles" />
+      </property>
+      <effect_group tiered="false">
+        <passive_effect name="ModSlots" operation="base_set" value="0" />
+
+        <!-- apparelShades -->
+        <passive_effect name="AttributeLevel" tags="attPerception" operation="base_add" value="1" />
+
+        <!-- apparelToughGuySunglasses -->
+        <passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="1" />
+
+        <!-- apparelAviatorGoggles -->
+        <passive_effect name="LootGamestage" operation="base_add" value="5,5.2" />
+        <passive_effect name="TreasureBlocksPerReduction" operation="base_add" value="-1" />
+        <display_value name="dTreasureBlocksPerReduction" value="-1" />
+
+        <!-- apparelSkiGoggles -->
+        <passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="1" />
+
+        <!-- apparelNerdGlasses -->
+        <passive_effect name="AttributeLevel" operation="base_add" value="1" tags="attIntellect" />
+        <passive_effect name="CraftingTime" operation="perc_add" value="-.1" />
+        <passive_effect name="PlayerExpGain" operation="perc_add" value=".1" />
+        <display_value name="dCraftingTime" value="-.1" />
+        <display_value name="dPlayerExpGain" value=".1" />
+
+        <!-- apparelSkiGoggles -->
+        <passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="1" />
       </effect_group>
     </item>
   </append>

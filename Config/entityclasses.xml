@@ -1,0 +1,40 @@
+<configs>
+  <append xpath="/entity_classes/entityClass[@name='zombieScreamer']">
+    <property name="MaxViewAngle" value="20"/>
+    <property name="SightRange" value="-5"/> <!-- distance in m -->
+    <property name="SightLightThreshold" value="220,550"/> <!-- how well lit you have to be for the zombie to see you at min,max range -->
+
+    <property name="MaxTurnSpeed" value="50"/>
+    <property name="MoveSpeed" value="0.04"/> <!-- Just shambling around -->
+    <property name="MoveSpeedAggro" value="0.04, 0.08"/> <!-- Chasing a target min/max (like day or night) -->
+    <property name="MoveSpeedRand" value="-.2, .25"/> <!-- Rand added to min aggro speed -->
+    <property name="MoveSpeedPanic" value="0.15"/>
+  </append>
+</configs>
+
+<!--
+
+  Blind screamers, inherit this from zombieTemplateMale (doesn't work much?)
+
+  <property name="MaxViewAngle" value="180"/>
+	<property name="SightRange" value="30"/> // distance in m
+	<property name="SightLightThreshold" value="-2,150"/> // how well lit you have to be for the zombie to see you at min,max range
+
+  Slow screamers, inherit this from zombieTemplateMale:
+
+	<property name="MaxTurnSpeed" value="250"/>
+	<property name="MoveSpeed" value="0.08"/> // Just shambling around
+	<property name="MoveSpeedAggro" value="0.2, 1.25"/> // Chasing a target min/max (like day or night)
+	<property name="MoveSpeedRand" value="-.2, .25"/> // Rand added to min aggro speed
+	<property name="MoveSpeedPanic" value="0.55"/>
+
+
+  Might want to alter this in the template so sleepers that wake always play sounds:
+
+	<property name="SoundSleeperSenseChance" value=".5"/> // the chance to play "SoundSleeperSense" when "SleeperSmellSenseThreshold" is triggered
+
+  Good loot?
+
+	<property name="LootDropProb" value=".02"/> // Whether it drops a loot bag on death or not.
+
+-->
