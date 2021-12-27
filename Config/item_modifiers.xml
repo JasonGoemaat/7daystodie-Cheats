@@ -2,6 +2,8 @@
   <!-- new modifier that does awesome things to weapons
   -->
   <append xpath="/item_modifiers">
+    <!-- FU Mod - super mod for weapons/tools with faster attack, near instant reload, high
+      damage, little spread and kick, rad remover, large magazine -->
     <item_modifier name="modGunMeleeFuckYou" installable_tags="weapon,tool" modifier_tags="specialDamage" blocked_tags="noMods" type="attachment">
       <property name="Stacknumber" value="1" />
       <property name="Group" value="Mods" />
@@ -48,6 +50,19 @@
       <!-- Can it add penitration?  That's normally on the bullets... -->
       <passive_effect name="EntityPenetrationCount" operation="base_set" value="3" />
     </item_modifier>
+
+    <!-- Solar vehicle mod, no fuel use and faster speed -->
+    <item_modifier name="modVehicleSolar" installable_tags="vehicle" blocked_tags="noMods" type="attachment">
+      <property name="Extends" value="modGeneralMaster"/>
+      <property name="CustomIcon" value="armorSantaHat"/>
+      <effect_group tiered="false">
+        <passive_effect name="VehicleFuelUsePer" operation="perc_set" value="0"/>
+        <passive_effect name="LightIntensity" operation="perc_set" value="3"/>
+        <passive_effect name="VehicleVelocityMaxPer" operation="perc_set" value="2"/>
+        <passive_effect name="VehicleVelocityMaxTurboPer" operation="perc_set" value="2"/>
+      </effect_group>
+    </item_modifier>
+  
   </append>
 
 

@@ -1,0 +1,25 @@
+<configs>
+  <!-- special material to make frame shapes have high stability, 20k hp, and explosion resist -->
+  <append xpath="/materials">
+    <material id="Mstrong_shapes">
+      <property name="damage_category" value="metal"/>
+      <property name="surface_category" value="metal"/>
+      <property name="forge_category" value="iron"/>
+      <property name="Hardness" type="float" value="1"/>
+      <property name="stepsound" value="wood"/>
+      <property name="stability_glue" value="300"/>
+      <property name="Mass" type="int" value="5"/>
+      <property name="explosionresistance" value="5.75"/>
+      <property name="MaxDamage" value="20000"/>
+      <property name="Experience" value="6"/>
+    </material>
+  </append>
+
+  <!-- fix spike traps to have more HP, I don't know why they are so delicate... -->
+  <!-- wood shapes have 500, and I think there's 3 stages, so 166 instead of 33 -->
+  <set xpath="/materials/material[@id='MtrapSpikesWood']/property[@name='MaxDamage']/@value">166</set>
+
+  <!-- metal shapes have 1000, and I think there's 3 stages, so 333 instead of 66 -->
+  <set xpath="/materials/material[@id='MtrapSpikesIron']/property[@name='MaxDamage']/@value">333</set>
+
+</configs>

@@ -12,11 +12,20 @@
       <ingredient name="resourceWood" count="1" />
     </recipe>
 
+    <recipe name="armorGetSome" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
+
     <recipe name="meleeToolSalvageSuperWrench" count="1" tags="">
       <ingredient name="resourceWood" count="1" />
     </recipe>
 
     <recipe name="modGunMeleeFuckYou" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
+
+    <recipe name="modVehicleSolar" count="1" tags="">
+      <!-- would make sense to make it take batteries, solar panels, mechanical parts, electrical parts -->
       <ingredient name="resourceWood" count="1" />
     </recipe>
 
@@ -29,6 +38,10 @@
     </recipe>
 
     <recipe name="apparelFourEyesNV" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
+
+    <recipe name="superTurret" count="1" tags="">
       <ingredient name="resourceWood" count="1" />
     </recipe>
   </append>

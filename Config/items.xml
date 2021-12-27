@@ -265,7 +265,10 @@
       <property name="RepairExpMultiplier" value="5.5" />
     </item>
 
-    <item name="armorWhisper">
+    <!--********************************************************************************
+      * Whisper - boots that make you silent and nearly invisible
+      ********************************************************************************-->
+      <item name="armorWhisper">
       <property name="Extends" value="armorMilitaryStealthBoots" param1="CustomIcon" />
       <property name="CustomIcon" value="armorMilitaryBoots" />
       <property name="CustomIconTint" value="0,255,255" />
@@ -294,7 +297,6 @@
         <passive_effect name="BuffResistance" operation="base_add" value="1,1.05" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire,critResistDisplay" />
         <passive_effect name="DegradationMax" operation="base_set" value="20000" />
         <passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="lightArmorDeg" />
-        <passive_effect name="Mobility" operation="perc_add" value=".1" />
         <passive_effect name="NoiseMultiplier" operation="perc_add" value="-1.5" />
         <display_value name="dNoiseMultiplier" value="-1.5" />
         <passive_effect name="StaminaChangeOT" operation="perc_add" value=".05" />
@@ -302,6 +304,51 @@
       </effect_group>
     </item>
 
+    <!--********************************************************************************
+      * GetSome - boots that make you very loud and visible, good for getting zombies
+      * in those T5 POIs to notice you for the clear missions.  It also provides
+      * perfect thermal resists and good damage and crit resists, and should never
+      * wear out.  It also gives some stamina and mobility bonuses.
+      ********************************************************************************-->
+      <item name="armorGetSome">
+        <property name="Extends" value="armorMilitaryStealthBoots" param1="CustomIcon" />
+        <property name="CustomIcon" value="armorMilitaryBoots" />
+        <property name="CustomIconTint" value="255,55,55" />
+  
+        <property name="DisplayType" value="armorGetSome"/>
+  
+        <property name="LightValue" value="3.35" />
+        <property name="LightSource" value="lightSource" />
+        <property name="ActivateObject" value="lightSource" />
+        <property name="AlwaysActive" value="true" />
+  
+        <property class="UMA">
+          <property name="Mesh" value="plant_fiber_shoes" />
+          <property name="Overlay0" value="fiberCloth_shoes" />
+          <property name="Layer" value="1" />
+          <property name="UISlot" value="Footwear" />
+        </property>
+        <effect_group tiered="false">
+          <passive_effect name="ModSlots" operation="base_set" value="0" />
+          <passive_effect name="HypothermalResist" operation="base_add" value="100" />
+          <passive_effect name="HyperthermalResist" operation="base_add" value="100" />
+          <passive_effect name="PhysicalDamageResist" operation="base_add" value="25,26" />
+          <passive_effect name="ElementalDamageResist" operation="perc_add" value=".5" tags="radiation" />
+  
+          <passive_effect name="ElementalDamageResist" operation="base_add" value="20,25" tags="heat,electrical,radiation" />
+          <passive_effect name="BuffResistance" operation="base_add" value="1,1.05" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire,critResistDisplay" />
+          <passive_effect name="DegradationMax" operation="base_set" value="20000" />
+          <passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="lightArmorDeg" />
+          <passive_effect name="NoiseMultiplier" operation="perc_add" value="2.5" />
+          <display_value name="dNoiseMultiplier" value="2.5" />
+          <passive_effect name="StaminaChangeOT" operation="perc_add" value=".05" />
+          <passive_effect name="Mobility" operation="perc_add" value=".15"/>
+        </effect_group>
+      </item>
+
+    <!--********************************************************************************
+      * FourEyes - Glasses that combine the stat bonuses from all the special glasses
+      ********************************************************************************-->
     <item name="apparelFourEyes">
       <property name="Extends" value="apparelShades" />
       <property name="Material" value="Mleather" />
@@ -344,6 +391,10 @@
       </effect_group>
     </item>
 
+    <!--********************************************************************************
+      * FourEyesNV - Glasses that combine the stat bonuses from all the special glasses
+      * and contain a night vision capability.
+      ********************************************************************************-->
     <item name="apparelFourEyesNV">
       <property name="Extends" value="apparelShades" />
       <property name="Material" value="Mleather" />
