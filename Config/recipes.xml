@@ -44,5 +44,9 @@
     <recipe name="superTurret" count="1" tags="">
       <ingredient name="resourceWood" count="1" />
     </recipe>
+
+    <recipe name="superbatterybank" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
   </append>
 </configs>
