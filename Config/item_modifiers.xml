@@ -60,6 +60,7 @@
         <passive_effect name="LightIntensity" operation="perc_set" value="3"/>
         <passive_effect name="VehicleVelocityMaxPer" operation="perc_set" value="2"/>
         <passive_effect name="VehicleVelocityMaxTurboPer" operation="perc_set" value="2"/>
+				<passive_effect name="DegradationPerUse" operation="perc_add" value="-1"/> <!-- testing -->
       </effect_group>
     </item_modifier>
   

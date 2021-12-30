@@ -48,5 +48,9 @@
     <recipe name="superbatterybank" count="1" tags="">
       <ingredient name="resourceWood" count="1" />
     </recipe>
+
+    <recipe name="superpowerbox" count="1" tags="">
+      <ingredient name="resourceWood" count="1" />
+    </recipe>
   </append>
 </configs>
