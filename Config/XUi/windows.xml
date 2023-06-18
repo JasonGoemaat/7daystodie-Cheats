@@ -1,0 +1,6 @@
+<configs>
+  <removeattribute xpath="/windows/window[@name='editorPanelSelector']/grid/button[@name='levelTools']/@visible" />
+  <!-- <removeattribute xpath="/windows/window[@name='editorPanelSelector']/grid/button[@name='levelTools2']/@visible" />
+  <removeattribute xpath="/windows/window[@name='editorPanelSelector']/grid/button[@name='worldTools']/@visible" />
+  <removeattribute xpath="/windows/window[@name='editorPanelSelector']/grid/button[@name='prefabList']/@visible" /> -->
+</configs>

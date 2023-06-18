@@ -5,7 +5,7 @@
       <display_value value="xxx" />
       <effect_group>
         <passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2" />
-        <passive_effect name="LockPickTime" operation="perc_subtract" value="0.8" />
+        <passive_effect name="LockPickTime" operation="perc_subtract" value="0.4" />
       </effect_group>
     </buff>
 
